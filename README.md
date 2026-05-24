@@ -17,6 +17,40 @@
 
 This skill generates CompleteTech-branded #10 addressed envelope PDFs with a logo, return address, recipient block, attention line, postage box, and print-at-100-percent footer note. It is built for mailing contracts, certificates, notices, and other artifacts that need consistent CompleteTech presentation.
 
+## About
+
+Part of the CompleteTech LLC agentic services skill library. This skill owns delivery packaging details: addressed envelope PDFs, recipient metadata, attachment manifests, package filenames, mailing notes, and delivery-readiness checks for contracts, invoices, certificates, proposals, notices, and other CompleteTech artifacts.
+
+## OpenClaw / ClawHub Metadata
+
+- Skill key: `agentic-envelope-skill`
+- Version-ready metadata: `1.0.0`
+- Homepage: https://github.com/CompleteTech-LLC/agentic-envelope-skill
+- README: https://github.com/CompleteTech-LLC/agentic-envelope-skill#readme
+- Runtime binaries: `python3`
+- Python packages: `reportlab>=4.0`
+- Intended registry/discovery tags: `latest`, `complete-tech`, `codex-skill`, `agentic-development`, `agentic-workflows`, `envelope`, `delivery-packaging`, `pdf-generator`
+- License: repository code, templates, and documentation use MIT; ClawHub publishing is intentionally skipped for now.
+- Brand assets: CompleteTech LLC names, logos, seals, and brand assets are reserved; see `BRAND_ASSETS.md`.
+
+## Workflow Diagram
+
+```mermaid
+flowchart LR
+  A[Generated artifact paths] --> B[Recipient metadata]
+  B --> C[Attachment manifest]
+  C --> D{Delivery-ready?}
+  D -->|Missing approval or address| E[Blocked package notes]
+  D -->|Ready| F[Printable envelope PDF]
+  F --> G[Mailing or handoff package]
+  classDef source fill:#eef6ff,stroke:#3778c2,color:#102a43;
+  classDef gate fill:#fff7e6,stroke:#c97a12,color:#3d2600;
+  classDef output fill:#eefaf0,stroke:#2f8f46,color:#12351d;
+  class A,B,C source;
+  class D gate;
+  class E,F,G output;
+```
+
 ## Quick Start
 
 ```bash
@@ -77,6 +111,14 @@ Pass multiple config files with `--config`; later files override earlier files.
 
 - `assets/logo.png` - envelope header logo.
 
+## Brand Notes
+
+Use envelope packaging only after the source artifact exists. Do not invent recipient names, mailing addresses, email addresses, attachment lists, billing approval, signature authority, or send approval. Keep the contract, invoice, certificate, proposal, proof asset, and email body owned by their specialist skills; this skill packages and labels the delivery.
+
 ## Source
 
 This standalone skill was extracted from the envelope generator originally bundled in `CompleteTech-LLC/agentic-contract-skill`.
+
+## License
+
+Code, templates, and documentation are licensed under the MIT License. CompleteTech LLC names, logos, seals, and brand assets are reserved and are not licensed for reuse except to identify this project. See `LICENSE` and `BRAND_ASSETS.md`.
