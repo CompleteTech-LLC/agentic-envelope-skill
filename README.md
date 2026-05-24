@@ -74,6 +74,8 @@ The default output path is `output/addressed_envelope.pdf`.
 
 ![Envelope package preview](assets/examples/example.png)
 
+Preview converted from generated artifact: [example.pdf](assets/examples/example.pdf).
+
 **Delivery package: Signed agreement and deposit invoice**
 
 ```bash
@@ -81,7 +83,7 @@ python generate_envelope.py \
   --config config.ini examples/client_address_override.ini \
   --recipient-attention "Attn: Jordan Lee, Operations Director" \
   --postage-box-text "FIRST-CLASS MAIL" \
-  --out output/northstar_support_contract_package_envelope.pdf
+  --out assets/examples/example.pdf
 ```
 
 Example package manifest:
@@ -90,7 +92,7 @@ Example package manifest:
 |---|---|---|---|
 | Agreement PDF | `northstar_support_triage_agreement.pdf` | Jordan Lee | Ready for signature review |
 | Deposit invoice | `northstar_support_triage_deposit_invoice.pdf` | Jordan Lee | Draft until billing approval |
-| Envelope PDF | `northstar_support_contract_package_envelope.pdf` | Jordan Lee | Ready to print at 100% scale |
+| Envelope PDF | `assets/examples/example.pdf` | Jordan Lee | Ready to print at 100% scale |
 
 Use this skill to make the delivery package clear before mailing or external handoff; keep the agreement, invoice, and email body owned by their specialist skills.
 
