@@ -74,25 +74,23 @@ The default output path is `output/addressed_envelope.pdf`.
 
 ![Envelope package preview](assets/examples/example.png)
 
-Full-document preview converted from generated artifact: [example.pdf](assets/examples/example.pdf).
+Full-page preview rendered from the generated artifact: [example.pdf](assets/examples/example.pdf).
 
-**Delivery package: Signed agreement and deposit invoice**
+**Delivery package: Signed agreement and deposit invoice for Northwind Trading Co.**
 
 ```bash
 python generate_envelope.py \
-  --config config.ini examples/client_address_override.ini \
-  --recipient-attention "Attn: Jordan Lee, Operations Director" \
-  --postage-box-text "FIRST-CLASS MAIL" \
+  --config config.ini examples/northwind_address.ini \
   --out assets/examples/example.pdf
 ```
 
-Example package manifest:
+Example package manifest (realistic demonstration data):
 
 | Item | Filename | Recipient | Status |
 |---|---|---|---|
-| Agreement PDF | `northstar_support_triage_agreement.pdf` | Jordan Lee | Ready for signature review |
-| Deposit invoice | `northstar_support_triage_deposit_invoice.pdf` | Jordan Lee | Draft until billing approval |
-| Envelope PDF | `assets/examples/example.pdf` | Jordan Lee | Ready to print at 100% scale |
+| Agreement PDF | `northwind_support_triage_agreement.pdf` | Morgan Reyes, General Counsel | Ready for signature review |
+| Deposit invoice | `northwind_support_triage_deposit_invoice.pdf` | Morgan Reyes, General Counsel | Draft until billing approval |
+| Envelope PDF | `assets/examples/example.pdf` | Morgan Reyes, General Counsel | Ready to print at 100% scale |
 
 Use this skill to make the delivery package clear before mailing or external handoff; keep the agreement, invoice, and email body owned by their specialist skills.
 
