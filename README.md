@@ -74,7 +74,7 @@ The default output path is `output/addressed_envelope.pdf`.
 
 ![Envelope package preview](assets/examples/example.png)
 
-Preview converted from generated artifact: [example.pdf](assets/examples/example.pdf).
+Full-document preview converted from generated artifact: [example.pdf](assets/examples/example.pdf).
 
 **Delivery package: Signed agreement and deposit invoice**
 
