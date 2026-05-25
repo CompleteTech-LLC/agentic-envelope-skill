@@ -74,7 +74,7 @@ The default output path is `output/addressed_envelope.pdf`.
 
 ![Envelope package preview](assets/examples/example.png)
 
-Full-page preview rendered from the generated artifact: [example.pdf](assets/examples/example.pdf).
+Example files: [Markdown](assets/examples/example.md) · [PDF](assets/examples/example.pdf) · [DOCX](assets/examples/example.docx).
 
 **Delivery package: Signed agreement and deposit invoice for Northwind Trading Co.**
 
