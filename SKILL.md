@@ -1,7 +1,7 @@
 ---
 name: agentic-envelope-skill
 description: Generate branded CompleteTech LLC printable #10 addressed envelope PDFs and delivery packages with sender, recipient, optional attention line, postage box text, return-address toggle, logo, brand palette, attachment manifests, filenames, recipient metadata, and delivery-readiness checks. Use when Codex needs to package contracts, certificates, invoices, proposals, notices, or other CompleteTech artifacts for mailing or external delivery.
-version: 1.0.0
+version: 1.0.1
 metadata:
   openclaw:
     skillKey: agentic-envelope-skill
