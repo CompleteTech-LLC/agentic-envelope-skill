@@ -91,8 +91,6 @@ def parse_structured_files() -> None:
 def mermaid_command() -> list[str] | None:
     if shutil.which("mmdc"):
         return ["mmdc"]
-    if shutil.which("npx"):
-        return ["npx", "--yes", "@mermaid-js/mermaid-cli"]
     return None
 
 
@@ -103,7 +101,7 @@ def validate_mermaid(skip: bool) -> None:
         return
     cmd = mermaid_command()
     if skip or cmd is None:
-        reason = "requested" if skip else "mmdc/npx not available"
+        reason = "requested" if skip else "mmdc not available"
         print(f"mermaid skipped: {reason}")
         return
     with tempfile.TemporaryDirectory(prefix="skill-mermaid-") as tmp:
@@ -114,20 +112,18 @@ def validate_mermaid(skip: bool) -> None:
 
 
 def smoke_generators() -> None:
-    generator_commands = {
-        "generate_certificate.py": ["--config", "config.ini", "examples/northwind_workshop.ini", "--out", "{tmp}/certificate.pdf"],
-        "generate_contract.py": [
-            "--config", "config.ini", "examples/northwind_support_triage.ini", "--out", "{tmp}/contract.pdf",
-            "--markdown-out", "{tmp}/contract.md", "--no-envelope",
-        ],
-        "generate_envelope.py": ["--config", "config.ini", "examples/northwind_address.ini", "--out", "{tmp}/envelope.pdf"],
-    }
     with tempfile.TemporaryDirectory(prefix="skill-generator-") as tmp:
-        for path in sorted(ROOT.glob("generate_*.py")):
-            run([sys.executable, str(path), "--help"])
-            args = generator_commands.get(path.name)
-            if args:
-                run([sys.executable, str(path), *[arg.format(tmp=tmp) for arg in args]])
+        path = ROOT / "generate_envelope.py"
+        run([sys.executable, str(path), "--help"])
+        run([
+            sys.executable,
+            str(path),
+            "--config",
+            "config.ini",
+            "examples/northwind_address.ini",
+            "--out",
+            f"{tmp}/envelope.pdf",
+        ])
     print("generator smoke ok")
 
 
@@ -158,10 +154,7 @@ def run_pyright() -> None:
     if shutil.which("pyright"):
         run(["pyright"])
         return
-    if shutil.which("npx"):
-        run(["npx", "--yes", "pyright"])
-        return
-    raise RuntimeError("pyrightconfig.json exists, but pyright/npx is unavailable")
+    raise RuntimeError("pyrightconfig.json exists, but pyright is unavailable")
 
 
 def frontmatter() -> dict[str, Any]:

@@ -1,7 +1,7 @@
 ---
 name: agentic-envelope-skill
 description: Generate branded CompleteTech LLC printable #10 addressed envelope PDFs and delivery packages with sender, recipient, optional attention line, postage box text, return-address toggle, logo, brand palette, attachment manifests, filenames, recipient metadata, and delivery-readiness checks. Use when Codex needs to package contracts, certificates, invoices, proposals, notices, or other CompleteTech artifacts for mailing or external delivery.
-version: 1.0.1
+version: 1.0.2
 metadata:
   openclaw:
     skillKey: agentic-envelope-skill
@@ -78,10 +78,6 @@ python generate_envelope.py \
 5. If packaging multiple artifacts, return a manifest with artifact path, recipient, delivery mode, approval status, and missing facts.
 6. Return the generated PDF path and remind the user to print at 100% scale when physical mailing is requested.
 
-## Certificate Receipt Guidance
+## Network Boundary
 
-The skill remains usable without a classroom key. When certificate credit is needed, use `scripts/request_receipt.py` after the skill run. The shared class key is provided through `CT_CERT_COMPLETION_KEY`, `--completion-key`, or a registry profile; the website claim form receives only the generated receipt code.
-
-Receipt requests include this skill ID: `agentic-envelope-skill`. The helper sends class/session IDs, the shared key, skill version, generated run ID, optional artifact hash, and metadata to `https://cert.complete.tech/api/skill-runs`. The student claims the certificate at `https://cert.complete.tech/claim` with the returned receipt.
-
-Do not print, store, or commit real classroom completion keys.
+This skill is local-only. It does not include outbound network helpers, callbacks, or any helper that posts envelope run metadata to an external service.
