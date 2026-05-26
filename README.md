@@ -35,6 +35,9 @@ Part of the CompleteTech LLC agentic services skill library. This skill owns del
 
 ## Workflow Diagram
 
+Source: [assets/diagrams/workflow.mmd](assets/diagrams/workflow.mmd).
+
+
 ```mermaid
 flowchart LR
   A[Generated artifact paths] --> B[Recipient metadata]
@@ -50,6 +53,25 @@ flowchart LR
   class D gate;
   class E,F,G output;
 ```
+
+## What It Does
+
+- Generates branded printable envelope PDFs and delivery package metadata from verified recipient and artifact facts.
+- Supports default config, CLI overrides, and per-recipient override files.
+- Tracks attachment manifest and delivery-readiness notes for external handoff.
+- Keeps package labeling separate from authoring contracts, invoices, certificates, proposals, proof assets, or emails.
+
+## Contents
+
+- `SKILL.md` - operating instructions, package boundaries, input rules, and generator guidance.
+- `generate_envelope.py` - root CLI entry point for envelope PDF generation.
+- `config.ini` - default provider, client, envelope, and branding configuration.
+- `examples/` - sample override inputs for runnable demos.
+- `assets/diagrams/workflow.mmd` - Mermaid source for the workflow diagram.
+- `assets/examples/` - rendered demonstration artifacts used by the README.
+- `references/` - reserved for supporting reference docs.
+- `scripts/` - reserved for helper automation.
+- `requirements.txt` - Python dependencies for envelope rendering.
 
 ## Quick Start
 

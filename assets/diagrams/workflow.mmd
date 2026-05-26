@@ -1,0 +1,13 @@
+flowchart LR
+  A[Generated artifact paths] --> B[Recipient metadata]
+  B --> C[Attachment manifest]
+  C --> D{Delivery-ready?}
+  D -->|Missing approval or address| E[Blocked package notes]
+  D -->|Ready| F[Printable envelope PDF]
+  F --> G[Mailing or handoff package]
+  classDef source fill:#eef6ff,stroke:#3778c2,color:#102a43;
+  classDef gate fill:#fff7e6,stroke:#c97a12,color:#3d2600;
+  classDef output fill:#eefaf0,stroke:#2f8f46,color:#12351d;
+  class A,B,C source;
+  class D gate;
+  class E,F,G output;

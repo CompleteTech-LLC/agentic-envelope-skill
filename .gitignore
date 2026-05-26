@@ -5,3 +5,22 @@ preview/*.png
 .env
 .env.*
 !.env.example
+
+# Shared skill layout ignores
+*.py[cod]
+*$py.class
+.DS_Store
+Thumbs.db
+desktop.ini
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+venv/
+env/
+ENV/
+secrets.json
+*_secret.ini
+*_local.ini
+preview/
+output/
+*.tmp
