@@ -60,10 +60,7 @@ def run_ruff() -> None:
     if shutil.which("ruff"):
         run(["ruff", "check", "."])
         return
-    if shutil.which("uvx"):
-        run(["uvx", "ruff", "check", "."])
-        return
-    run([sys.executable, "-m", "ruff", "check", "."])
+    raise RuntimeError("ruff is required for quality validation")
 
 
 def compile_python() -> None:
@@ -218,9 +215,13 @@ def publish_candidate_files(patterns: list[str]) -> list[Path]:
 
 def assert_dependency(openclaw: dict[str, Any], package: str) -> None:
     installs = openclaw.get("install") or []
-    packages = {str(item.get("package", "")).split(">=", 1)[0].lower() for item in installs if isinstance(item, dict)}
+    packages = {package_name(str(item.get("package", ""))) for item in installs if isinstance(item, dict)}
     if package.lower() not in packages:
         raise RuntimeError(f"metadata.openclaw.install must declare {package}")
+
+
+def package_name(spec: str) -> str:
+    return re.split(r"[<>=!~]", spec, 1)[0].strip().lower()
 
 
 def validate_clawhub_bundle() -> None:

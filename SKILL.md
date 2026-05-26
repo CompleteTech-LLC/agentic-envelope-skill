@@ -1,7 +1,7 @@
 ---
 name: agentic-envelope-skill
 description: Generate branded CompleteTech LLC printable #10 addressed envelope PDFs and delivery packages with sender, recipient, optional attention line, postage box text, return-address toggle, logo, brand palette, attachment manifests, filenames, recipient metadata, and delivery-readiness checks. Use when Codex needs to package contracts, certificates, invoices, proposals, notices, or other CompleteTech artifacts for mailing or external delivery.
-version: 1.0.2
+version: 1.0.3
 metadata:
   openclaw:
     skillKey: agentic-envelope-skill
@@ -11,9 +11,9 @@ metadata:
         - python3
     install:
       - kind: uv
-        package: pyyaml>=6.0
+        package: pyyaml==6.0.3
       - kind: uv
-        package: reportlab>=4.0
+        package: reportlab==4.5.1
 ---
 
 # Agentic Envelope Skill
@@ -32,6 +32,15 @@ This skill owns packaging, addressed envelopes, recipient metadata, attachment l
 - `config.ini` - provider, recipient, branding, and envelope defaults.
 - `examples/client_address_override.ini` - recipient address override example.
 - `assets/logo.png` - envelope header logo.
+
+## Runtime Permissions
+
+This skill needs local filesystem access only for its documented envelope workflow:
+
+- Reads bundled config files, recipient override INI files, and the configured local logo path.
+- Writes only to the user-selected `--out` path or default `output/addressed_envelope.pdf`.
+- Runs the local Python entry point `generate_envelope.py`.
+- Does not require network access, credential access, persistence, privilege escalation, or destructive file operations.
 
 ## Required Inputs
 

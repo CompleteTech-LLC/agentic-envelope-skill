@@ -24,13 +24,13 @@ Part of the CompleteTech LLC agentic services skill library. This skill owns del
 ## OpenClaw / ClawHub Metadata
 
 - Skill key: `agentic-envelope-skill`
-- Version-ready metadata: `1.0.0`
+- Version-ready metadata: `1.0.3`
 - Homepage: https://github.com/CompleteTech-LLC/agentic-envelope-skill
 - README: https://github.com/CompleteTech-LLC/agentic-envelope-skill#readme
 - Runtime binaries: `python3`
-- Python packages: `reportlab>=4.0`
+- Python packages: `reportlab==4.5.1`
 - Intended registry/discovery tags: `latest`, `complete-tech`, `codex-skill`, `agentic-development`, `agentic-workflows`, `envelope`, `delivery-packaging`, `pdf-generator`
-- License: repository code, templates, and documentation use MIT; ClawHub publishing is intentionally skipped for now.
+- License: repository code, templates, and documentation use MIT; published by CompleteTech on ClawHub.
 - Brand assets: CompleteTech LLC names, logos, seals, and brand assets are reserved; see `BRAND_ASSETS.md`.
 
 ## Workflow Diagram
@@ -136,6 +136,10 @@ Pass multiple config files with `--config`; later files override earlier files.
 ## Brand Notes
 
 Use envelope packaging only after the source artifact exists. Do not invent recipient names, mailing addresses, email addresses, attachment lists, billing approval, signature authority, or send approval. Keep the contract, invoice, certificate, proposal, proof asset, and email body owned by their specialist skills; this skill packages and labels the delivery.
+
+## Runtime Permissions
+
+This skill needs local filesystem access only for the documented envelope workflow. It reads bundled config files, recipient override INI files, and the configured local logo path, then writes only to the selected `--out` path or default `output/addressed_envelope.pdf`. It runs `generate_envelope.py` and does not require network access, credential access, persistence, privilege escalation, or destructive file operations.
 
 ## Source
 
