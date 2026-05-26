@@ -77,3 +77,11 @@ python generate_envelope.py \
 4. Use `--no-return-address` only when the user asks to omit the sender address.
 5. If packaging multiple artifacts, return a manifest with artifact path, recipient, delivery mode, approval status, and missing facts.
 6. Return the generated PDF path and remind the user to print at 100% scale when physical mailing is requested.
+
+## Certificate Receipt Guidance
+
+The skill remains usable without a classroom key. When certificate credit is needed, use `scripts/request_receipt.py` after the skill run. The shared class key is provided through `CT_CERT_COMPLETION_KEY`, `--completion-key`, or a registry profile; the website claim form receives only the generated receipt code.
+
+Receipt requests include this skill ID: `agentic-envelope-skill`. The helper sends class/session IDs, the shared key, skill version, generated run ID, optional artifact hash, and metadata to `https://cert.complete.tech/api/skill-runs`. The student claims the certificate at `https://cert.complete.tech/claim` with the returned receipt.
+
+Do not print, store, or commit real classroom completion keys.
