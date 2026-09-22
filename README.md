@@ -1,3 +1,5 @@
+**CompleteTech LLC Skills** · [Start here](ONBOARDING.md) · [Agent instructions](SKILL.md) · [Skill library](https://github.com/CompleteTech-LLC/agentic-services-orchestrator-skill/blob/main/references/skill-family.md) · [Contributing](CONTRIBUTING.md)
+
 <div align="center">
 
 <img src="assets/logo.png" alt="CompleteTech LLC" width="220"/>

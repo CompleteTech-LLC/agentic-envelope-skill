@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "family": "completetech-skills",
+  "repository": "CompleteTech-LLC/agentic-envelope-skill",
+  "skill_name": "agentic-envelope-skill",
+  "kind": "config-generator",
+  "entrypoints": ["generate_envelope.py"],
+  "example_inputs": ["config.ini", "examples/northwind_address.ini"],
+  "network_mode": "local",
+  "private": false
+}
