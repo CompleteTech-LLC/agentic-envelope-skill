@@ -32,7 +32,7 @@ Part of the CompleteTech LLC agentic services skill library. This skill owns del
 - Runtime binaries: `python3`
 - Python packages: `reportlab==4.5.1`
 - Intended registry/discovery tags: `latest`, `complete-tech`, `codex-skill`, `agentic-development`, `agentic-workflows`, `envelope`, `delivery-packaging`, `pdf-generator`
-- License: repository code, templates, and documentation use MIT; published by CompleteTech on ClawHub.
+- License: repository code, templates, and documentation use MIT; the repository is prepared for ClawHub publishing, not yet published (see `CLAW_HUB_PUBLISHING.md`).
 - Brand assets: CompleteTech LLC names, logos, seals, and brand assets are reserved; see `BRAND_ASSETS.md`.
 
 ## Workflow Diagram
