@@ -2,7 +2,10 @@
 
 <div align="center">
 
-<img src="assets/logo.png" alt="CompleteTech LLC" width="220"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/logo-dark.png">
+  <img src="assets/logo.png" alt="CompleteTech LLC" width="220"/>
+</picture>
 
 # Agentic Envelope Skill
 
